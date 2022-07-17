@@ -21,7 +21,7 @@ const reviewRoutes = require('./routes/reviews');
 
 const MongoDBStore = require("connect-mongo")(session);
 
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/July-17-Tour-ind';
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/Tour-Ind-Recent';
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
