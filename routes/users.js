@@ -9,9 +9,16 @@ router.route('/register')
     .get(users.renderRegister)
     .post(catchAsync(users.register));
 
+router.route('/forget-Pass')
+    .post(users.forgetPass)
+    // .get(users.renderForgetPass)
+router.route('/reset-Pass')
+    .get(users.resetPass)
+
 router.route('/login')
     .get(users.renderLogin)
     .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
+
 
 router.get('/logout', users.logout)
 
