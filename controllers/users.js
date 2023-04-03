@@ -28,7 +28,10 @@ module.exports.register = async (req, res, next) => {
 const sendResetPasswordMail = async(name, email, token) =>{
     try {
         const transporter = nodemailer.createTransport({
-            service : 'gmail',
+            host : 'smtp.gmail.com',
+            port : 587,
+            secure : false,
+            requireTLS : true,
             auth : {
                 user : 'yogeshghatode3@gmail.com',
                 pass : config.emailPass
@@ -37,7 +40,7 @@ const sendResetPasswordMail = async(name, email, token) =>{
 
         const mailOptions = {
             from : 'yogeshghatode3@gmail.com',
-            to : 'yogeshghatode1512@gmail.com',
+            to :  email,
             subject : "For reset Password in Tour-Ind",
             html : '<p> Hi '+ name +', Please copy the link and <a href="https:localhost:3000/reset-Pass?token='+token+'"> reset your password</a>.</p>'
         }
@@ -62,7 +65,7 @@ module.exports.forgetPass =  async (req, res) => {
 
         if(userData){
             const randomString = randomstring.generate();
-            const data = User.updateOne({email : email}, {$set : { token: randomString} } );
+            const data = User.updateOne({email : userData.email}, {$set : { token: randomString} } );
 
             sendResetPasswordMail(userData.name, userData.email, randomString);
 

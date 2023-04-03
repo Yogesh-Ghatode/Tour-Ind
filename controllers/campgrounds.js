@@ -14,6 +14,14 @@ module.exports.renderNewForm = (req, res) => {
     res.render('campgrounds/new');
 }
 
+module.exports.renderUserIndex = async ( req, res) => {
+    const id = req.user._id;
+    const userCampground = await Campground.find({ author : id });
+    console.log(userCampground);
+    res.render('campgrounds/userIndex' , { userCampground } );
+} 
+
+
 module.exports.createCampground = async (req, res, next) => {
     const geoData = await geocoder.forwardGeocode({
         query: req.body.campground.location,
