@@ -45,13 +45,13 @@ The Tourism Website is a web application designed to provide users with informat
    
 5. Set up the required environment variables :
 
-   - `CLOUDINARY_CLOUD_NAME=Your_Cloudinary_userName
+   - `CLOUDINARY_CLOUD_NAME=Your_Cloudinary_userName`
    
-   - `CLOUDINARY_KEY=Your_cloudinary_key
+   - `CLOUDINARY_KEY=Your_cloudinary_key`
    
-   - `CLOUDINARY_SECRET=Your_cloudinary_secret
+   - `CLOUDINARY_SECRET=Your_cloudinary_secret`
    
-   - `MAPBOX_TOKEN=Your_mapbox_token
+   - `MAPBOX_TOKEN=Your_mapbox_token`
    
    - `SECRET=Your_secrete_value`
    
